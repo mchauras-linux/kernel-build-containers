@@ -19,6 +19,9 @@ __Supported build targets:__
  - `i386`
  - `arm64` or `aarch64`
  - `arm` or `aarch32`
+ - `ppc` or `powerpc`
+ - `ppc64` or `powerpc64`
+ - `ppc64le` or `powerpc64le`
 
 __Supported gcc versions:__
  - gcc-4.9 (doesn't support `gcc-plugins` for `arm64` and `arm`)

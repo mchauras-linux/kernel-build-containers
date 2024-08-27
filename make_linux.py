@@ -8,9 +8,9 @@ import argparse
 import subprocess
 import shutil
 import filecmp
+import platform
 
-
-supported_archs = ['x86_64', 'i386', 'arm64', 'arm']
+supported_archs = ['x86_64', 'i386', 'arm64', 'arm', 'ppc', 'ppc64', 'ppc64le']
 supported_compilers = ['gcc-4.9', 'gcc-5', 'gcc-6', 'gcc-7', 'gcc-8', 'gcc-9', 'gcc-10', 'gcc-11', 'gcc-12', 'gcc-13', 'gcc-14',
                        'clang-12', 'clang-13', 'clang-14', 'clang-15', 'clang-16', 'clang-17',
                        'all']
@@ -20,7 +20,10 @@ NAME_DELIMITER = '__'
 
 def get_cross_compile_args(arch):
     args_list = []
-    if arch == 'i386':
+    machine = platform.machine()
+    if arch == machine
+        return []
+    elif arch == 'i386':
         args_list.append('ARCH=i386')
     elif arch == 'arm64':
         args_list.append('ARCH=arm64')
@@ -28,6 +31,15 @@ def get_cross_compile_args(arch):
     elif arch == 'arm':
         args_list.append('ARCH=arm')
         args_list.append('CROSS_COMPILE=arm-linux-gnueabi-')
+    elif arch == 'ppc':
+        args_list.append('ARCH=powerpc')
+        args_list.append('CROSS_COMPILE=powerpc-linux-gnu-')
+    elif arch == 'ppc64':
+        args_list.append('ARCH=powerpc64')
+        args_list.append('CROSS_COMPILE=powerpc64-linux-gnu-')
+    elif arch == 'ppc64le':
+        args_list.append('ARCH=powerpc64le')
+        args_list.append('CROSS_COMPILE=powerpc64le-linux-gnu-')
     return args_list
 
 
