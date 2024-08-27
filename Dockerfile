@@ -10,7 +10,11 @@ RUN set -x && echo 'debconf debconf/frontend select Noninteractive' | debconf-se
     if [ "$GCC_VERSION" ]; then \
       apt-get install -y -q gcc-${GCC_VERSION} g++-${GCC_VERSION} gcc-${GCC_VERSION}-plugin-dev gcc g++ \
         gcc-${GCC_VERSION}-aarch64-linux-gnu g++-${GCC_VERSION}-aarch64-linux-gnu gcc-aarch64-linux-gnu g++-aarch64-linux-gnu \
-        gcc-${GCC_VERSION}-arm-linux-gnueabi g++-${GCC_VERSION}-arm-linux-gnueabi gcc-arm-linux-gnueabi g++-arm-linux-gnueabi && \
+        gcc-${GCC_VERSION}-arm-linux-gnueabi g++-${GCC_VERSION}-arm-linux-gnueabi gcc-arm-linux-gnueabi g++-arm-linux-gnueabi \
+        gcc-${GCC_VERSION}-powerpc-linux-gnu g++-${GCC_VERSION}-powerpc-linux-gnu \
+        gcc-${GCC_VERSION}-powerpc64le-linux-gnu g++-${GCC_VERSION}-powerpc64le-linux-gnu \
+        gcc-${GCC_VERSION}-powerpc64-linux-gnu g++-${GCC_VERSION}-powerpc64-linux-gnu && \
+
       if [ "$GCC_VERSION" != "4.9" ]; then \
         apt-get install -y -q gcc-${GCC_VERSION}-plugin-dev-aarch64-linux-gnu gcc-${GCC_VERSION}-plugin-dev-arm-linux-gnueabi; \
       fi \
